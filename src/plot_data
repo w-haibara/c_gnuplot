@@ -1,0 +1,3 @@
+set terminal x11
+plot 'graph_data'
+pause -1
