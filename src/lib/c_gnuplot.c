@@ -1,19 +1,34 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 #define SIZE 20
+#define PATHNAME_SIZE 512
 
-int8_t ploti(int *val, int size){
+int8_t ploti(char *path, int *val, int size){   
+    char pathname[PATHNAME_SIZE];
+    memset(pathname, '\0', PATHNAME_SIZE); 
+
+    for(int i=strlen(path); i>=0; i--){
+        if(path[i] == '/'){
+            break;
+        } else {
+            path[i] = '\0';
+        }
+    }
+
+    chdir(path);
+    getcwd(pathname, PATHNAME_SIZE);
+
     FILE *graph_data;
     graph_data = fopen("graph_data", "w");
-    
-   if (graph_data == NULL) {
+
+    if (graph_data == NULL) {
         printf("\terror: cannot open file\n");
         return 1;
     } 
 
-    //ファイルへ配列の値を出力  
     for(int i=0; i<size; i++){
         fprintf(graph_data, "%d: %d\n", i, val[i]);
     }

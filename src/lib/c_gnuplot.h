@@ -1,1 +1,1 @@
-int ploti(int *, int);
+int ploti(char *, int *, int);
