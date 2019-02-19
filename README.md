@@ -1,5 +1,5 @@
 # c_gnuplot
-The code that create graphs via gnuplot written in C
+The library that create graphs via gnuplot written in C
 
 ## getting started
 $ cd ./src/lib  
