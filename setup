@@ -1,0 +1,3 @@
+ cd ./src/lib
+ gcc -c ./c_gnuplot.c
+ ar crv libc_gnuplot.a c_gnuplot.o
